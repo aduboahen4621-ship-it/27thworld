@@ -8,31 +8,35 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
+<div class="topbar">
+🌍 Connecting workers and opportunities around the world
+</div>
+
 <header class="header">
 
-<div class="logo">
-<span class="twenty">27</span><sup>th</sup><span class="yellow">wrd</span>
-</div>
+<a class="logo" href="#home">
+27<sup>th</sup><span>wrd</span> 🌍
+</a>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#jobs">Jobs</a>
+<a href="#categories">Categories</a>
+<a href="#employers">Employers</a>
 <a href="#business">Business</a>
-<a href="#technology">Technology</a>
 <a href="#education">Education</a>
 <a href="#news">News</a>
 </nav>
 
 <div class="header-buttons">
-<button class="login">Login</button>
-<button class="signup">Sign Up</button>
+<button class="login" onclick="openModal('login')">Login</button>
+<button class="signup" onclick="openModal('register')">Sign Up</button>
 </div>
 
 </header>
@@ -41,23 +45,35 @@
 
 <div class="hero-content">
 
-<p class="tagline">YOUR 27TH OPPORTUNITY</p>
+<p class="tagline">YOUR 27TH OPPORTUNITY ANYWHERE IN THE WORLD</p>
 
 <h1>
-Discover Global<br>
-& Local <span>Job Opportunities</span>
+Find Work.<br>
+Build Skills.<br>
+<span>Move Forward.</span>
 </h1>
 
 <p class="description">
-Your 27th Chance for a Better Future!
+Discover jobs, business opportunities, education,
+technology and news in Ghana and worldwide.
 </p>
 
 <div class="search-box">
 
-<input type="text" id="searchInput"
-placeholder="Search jobs, business, technology...">
+<input id="searchInput" placeholder="Job title, skill or company">
 
-<button onclick="searchContent()">🔍</button>
+<select id="location">
+<option value="">Anywhere</option>
+<option>Ghana</option>
+<option>United Kingdom</option>
+<option>Canada</option>
+<option>United States</option>
+<option>UAE</option>
+<option>Germany</option>
+<option>Remote</option>
+</select>
+
+<button onclick="searchJobs()">Search</button>
 
 </div>
 
@@ -65,20 +81,15 @@ placeholder="Search jobs, business, technology...">
 Explore Opportunities →
 </button>
 
-<p class="small-text">
-Jobs in Ghana & Worldwide • Business Growth • Education • Technology
-</p>
-
 </div>
 
 <div class="hero-image">
-<img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80"
-alt="Professionals working together">
+<img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80">
 </div>
 
 </section>
 
-<section class="categories">
+<section class="categories" id="categories">
 
 <a href="#jobs">💼<span>Jobs</span></a>
 <a href="#business">📈<span>Business</span></a>
@@ -90,142 +101,265 @@ alt="Professionals working together">
 
 <section class="section" id="jobs">
 
-<div class="section-title">
-<h2>🔥 Top Jobs Today</h2>
-<p>Discover opportunities in Ghana and worldwide.</p>
+<h2>🔥 Global Job Opportunities</h2>
+
+<p>Find work in Ghana and anywhere in the world.</p>
+
+<div class="job-filters">
+
+<select id="categoryFilter" onchange="searchJobs()">
+<option value="">All Categories</option>
+<option>Technical</option>
+<option>Mechanic</option>
+<option>Construction</option>
+<option>Beauty</option>
+<option>Transport</option>
+<option>IT</option>
+<option>Hospitality</option>
+<option>Office</option>
+</select>
+
 </div>
 
-<div class="cards">
-
-<div class="card searchable">
-<h3>Software Developer</h3>
-<p>Remote • Worldwide</p>
-<button onclick="applyJob('Software Developer')">Apply Now</button>
-</div>
-
-<div class="card searchable">
-<h3>Marketing Manager</h3>
-<p>Accra, Ghana</p>
-<button onclick="applyJob('Marketing Manager')">Apply Now</button>
-</div>
-
-<div class="card searchable">
-<h3>Customer Service</h3>
-<p>Remote • International</p>
-<button onclick="applyJob('Customer Service')">Apply Now</button>
-</div>
-
-<div class="card searchable">
-<h3>Data Analyst</h3>
-<p>Worldwide • Remote</p>
-<button onclick="applyJob('Data Analyst')">Apply Now</button>
-</div>
+<div class="job-grid" id="jobGrid">
 
 </div>
 
 </section>
 
-<section class="section dark" id="business">
+<section class="employer-section" id="employers">
+
+<div>
+
+<h2>Are You a Business Owner?</h2>
+
+<p>
+Find workers for your company, shop, salon, construction site,
+workshop or business anywhere in the world.
+</p>
+
+</div>
+
+<button class="signup large" onclick="openModal('postjob')">
++ Post a Job
+</button>
+
+</section>
+
+<section class="section" id="business">
 
 <h2>📈 Business Opportunities</h2>
 
 <div class="cards">
 
-<div class="card searchable">
-<h3>Start a Profitable Business</h3>
-<p>Explore business ideas and entrepreneurship.</p>
+<div class="card">
+<h3>Start a Business</h3>
+<p>Discover business ideas and entrepreneurship.</p>
 </div>
 
-<div class="card searchable">
-<h3>Business Growth Tips</h3>
-<p>Learn how to grow your business.</p>
+<div class="card">
+<h3>Business Growth</h3>
+<p>Learn marketing and business development.</p>
+</div>
+
+<div class="card">
+<h3>Find Business Partners</h3>
+<p>Connect with entrepreneurs and professionals.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="section" id="technology">
+<section class="section dark" id="technology">
 
 <h2>💻 Technology & AI</h2>
 
 <div class="cards">
 
-<div class="card searchable">
-<h3>Learn Artificial Intelligence</h3>
-<p>Discover AI tools and new technologies.</p>
+<div class="card">
+<h3>Artificial Intelligence</h3>
+<p>Discover AI tools and opportunities.</p>
 </div>
 
-<div class="card searchable">
-<h3>Learn Web Development</h3>
-<p>Start your journey into software engineering.</p>
+<div class="card">
+<h3>Software Engineering</h3>
+<p>Learn programming and web development.</p>
+</div>
+
+<div class="card">
+<h3>Digital Skills</h3>
+<p>Build skills for online employment.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="section dark" id="education">
+<section class="section" id="education">
 
 <h2>🎓 Education & Scholarships</h2>
 
 <div class="cards">
 
-<div class="card searchable">
-<h3>Scholarship Opportunities</h3>
-<p>Discover scholarships in Ghana and abroad.</p>
+<div class="card">
+<h3>Scholarships</h3>
+<p>Find education opportunities worldwide.</p>
 </div>
 
-<div class="card searchable">
+<div class="card">
 <h3>Online Courses</h3>
 <p>Learn new skills and earn certificates.</p>
+</div>
+
+<div class="card">
+<h3>Training</h3>
+<p>Discover technical and vocational training.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="section" id="news">
+<section class="section dark" id="news">
 
 <h2>📰 Latest News</h2>
 
 <div class="cards">
 
-<div class="card searchable">
-<h3>Technology News</h3>
-<p>Stay updated with global technology.</p>
+<div class="card">
+<h3>Ghana News</h3>
+<p>Stay updated with Ghanaian developments.</p>
 </div>
 
-<div class="card searchable">
-<h3>Business News</h3>
-<p>Discover important business developments.</p>
+<div class="card">
+<h3>International News</h3>
+<p>Discover important global stories.</p>
+</div>
+
+<div class="card">
+<h3>Employment News</h3>
+<p>Stay informed about employment trends.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="app-section">
+<section class="payment">
 
-<h2>Get the 27thwrd App</h2>
+<h2>💳 Secure Online Payments</h2>
 
-<p>Access jobs, business, education, technology and news anywhere.</p>
+<p>
+Employers can pay for premium job advertisements,
+featured vacancies and business promotions.
+</p>
 
-<button class="signup">Coming Soon</button>
+<button onclick="alert('Payment gateway coming soon')">
+Payment Coming Soon
+</button>
 
 </section>
 
 <footer>
 
 <div class="logo">
-27<sup>th</sup><span class="yellow">wrd</span>
+27<sup>th</sup><span>wrd</span> 🌍
 </div>
 
 <p>Your 27th Opportunity Anywhere in the World!</p>
 
-<p>© 2026 27thwrd. All rights reserved.</p>
+<p>© 2026 27thwrd. All Rights Reserved.</p>
 
 </footer>
+
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="login">
+
+<div class="modal-content">
+
+<button onclick="closeModal('login')">✕</button>
+
+<h2>Login</h2>
+
+<input placeholder="Email Address">
+
+<input type="password" placeholder="Password">
+
+<button onclick="alert('Login system coming soon')">
+Login
+</button>
+
+</div>
+
+</div>
+
+<!-- REGISTER MODAL -->
+
+<div class="modal" id="register">
+
+<div class="modal-content">
+
+<button onclick="closeModal('register')">✕</button>
+
+<h2>Create Account</h2>
+
+<input placeholder="Full Name">
+
+<input placeholder="Email Address">
+
+<input type="password" placeholder="Password">
+
+<select>
+<option>Job Seeker</option>
+<option>Employer</option>
+</select>
+
+<button onclick="alert('Registration system coming soon')">
+Register
+</button>
+
+</div>
+
+</div>
+
+<!-- POST JOB MODAL -->
+
+<div class="modal" id="postjob">
+
+<div class="modal-content">
+
+<button onclick="closeModal('postjob')">✕</button>
+
+<h2>Post a Job</h2>
+
+<input id="jobTitle" placeholder="Job Title">
+
+<input id="company" placeholder="Company Name">
+
+<input id="jobCountry" placeholder="Country">
+
+<select id="jobCategory">
+<option>Technical</option>
+<option>Mechanic</option>
+<option>Construction</option>
+<option>Beauty</option>
+<option>IT</option>
+<option>Transport</option>
+<option>Hospitality</option>
+<option>Office</option>
+</select>
+
+<input id="salary" placeholder="Salary">
+
+<textarea id="description" placeholder="Job Description"></textarea>
+
+<button onclick="addJob()">Publish Job</button>
+
+</div>
+
+</div>
 
 <script src="script.js"></script>
 
